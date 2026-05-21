@@ -1,6 +1,6 @@
 package Tree;
 import java.util.*;
-public class BinaryTree {
+public class BinaryTree{
     public BinaryTree(){
 
     }
@@ -50,10 +50,20 @@ public class BinaryTree {
         display(node.left, indent + "\t");
         display(node.right, indent + "\t");
     }
+    public void preOrder(){
+        preOrder(root);
+    }
+    private void preOrder(Node node){
+        if(node == null) return;
+        System.out.println(node.value);
+        preOrder(node.left);
+        preOrder(node.right);
+    }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         BinaryTree tree = new BinaryTree();
         tree.populate(sc);
-        tree.display();
+//        tree.display();
+        tree.preOrder();
     }
 }
